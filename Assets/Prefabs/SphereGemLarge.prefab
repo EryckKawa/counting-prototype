@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7957080990393510120}
   - component: {fileID: 5300444435832083276}
   - component: {fileID: 4902476576225483156}
+  - component: {fileID: 3355116396192624379}
   m_Layer: 0
   m_Name: SphereGemLarge
-  m_TagString: Untagged
+  m_TagString: Gems
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +94,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199713676114673298}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -107,7 +108,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -127,9 +128,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2.1164157, y: 2.2253287, z: 2.2253284}
   m_Center: {x: -0.00000047683716, y: 0, z: -0.00000017881398}
+--- !u!114 &3355116396192624379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199713676114673298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd30873bdb67b848af9c784efa25ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemsRb: {fileID: 5300444435832083276}
+  customGravity: 0.2
+  points: 2
