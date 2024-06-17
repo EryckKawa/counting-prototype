@@ -7,8 +7,10 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float speed = 5f;
 	[SerializeField] private Rigidbody playerRb;
 	[SerializeField] private float rotationSpeed = 5f;
+	[SerializeField] AudioSource audioSource;
+	[SerializeField] AudioClip dirtSound;
 	[SerializeField] GameManager gameManager;
-	private Quaternion targetRotation; 
+	private Quaternion targetRotation;
 
 	// Start is called before the first frame update
 	void Start()
@@ -22,7 +24,7 @@ public class PlayerController : MonoBehaviour
 		HandleMovement();
 		HandleRotation();
 	}
-	
+
 	void HandleMovement()
 	{
 		float horizontalInput = Input.GetAxis("Horizontal");
@@ -46,5 +48,5 @@ public class PlayerController : MonoBehaviour
 		// Rotaciona suavemente em direção à rotação alvo
 		transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 	}
-	
+
 }

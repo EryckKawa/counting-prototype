@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +11,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] TextMeshProUGUI levelText;
 	[SerializeField] TextMeshProUGUI livesText;
 	[SerializeField] Slider progressBar;
+	[SerializeField] GameObject gameOverScreen;
 	[SerializeField] PlayerController player;
 	[SerializeField] SpawnGems spawnGems;
 	bool isGameActive;
@@ -24,7 +27,7 @@ public class GameManager : MonoBehaviour
 		SetLevel(level);
 		UpdateLivesText();
 	}
-
+	
 	public void AddScore(int amount)
 	{
 		score += amount;
@@ -46,7 +49,7 @@ public class GameManager : MonoBehaviour
 		UpdateLivesText();
 		if (lives <= 0)
 		{
-			Debug.Log("Game Over");
+			GameOver();
 		}
 	}
 
@@ -54,6 +57,11 @@ public class GameManager : MonoBehaviour
 	{
 		level = newLevel;
 		UpdateLevelText();
+	}
+	public void RestartGame()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		Time.timeScale = 1;
 	}
 
 	private void UpdateLevelText()
@@ -70,4 +78,11 @@ public class GameManager : MonoBehaviour
 	{
 		progressBar.maxValue *= 2;
 	}
+	
+	private void GameOver()
+	{
+		gameOverScreen.SetActive(true);
+		Time.timeScale = 0;
+	}
+	
 }
